@@ -85,7 +85,11 @@ func thing():
 	latest_rev = int(latest_rev)
 	$AdvancedPanel.threads.text = str(threads)
 	target_revision = latest_rev
-	$VBoxContainer2/Label.text = "INSTALLED: " + str(installed_revision)
+
+	if installed_revision > 0:
+		$VBoxContainer2/Label.text = "INSTALLED: " + str(installed_revision)
+	else:
+		$VBoxContainer2/Label.text = "NOT INSTALLED"
 	$VBoxContainer2/Label2.text = "LATEST: " + str(latest_rev)
 	if installed_revision == latest_rev:
 		$VBoxContainer/Update.disabled = true
